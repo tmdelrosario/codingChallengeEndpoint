@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="localdbModelStoreContainer" CdmEntityContainer="localdbEntities2">
+    <EntitySetMapping Name="tblPayments">
+      <EntityTypeMapping TypeName="localdbModel.tblPayment">
+        <MappingFragment StoreEntitySet="tblPayment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="localdbModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="accountBalance" ColumnName="accountBalance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectAllUsers" FunctionName="localdbModel.Store.SelectAllUsers" />
+    <FunctionImportMapping FunctionImportName="SelectUserAccountBalance" FunctionName="localdbModel.Store.SelectUserAccountBalance" />
+    <FunctionImportMapping FunctionImportName="SelectUserPaymentList" FunctionName="localdbModel.Store.SelectUserPaymentList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="localdbModel.SelectUserPaymentList_Result">
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
