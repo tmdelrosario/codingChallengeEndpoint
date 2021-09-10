@@ -15,10 +15,10 @@ namespace Coding
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class localdbEntities1 : DbContext
+    public partial class localdbEntities2 : DbContext
     {
-        public localdbEntities1()
-            : base("name=localdbEntities1")
+        public localdbEntities2()
+            : base("name=localdbEntities2")
         {
         }
     
@@ -29,6 +29,11 @@ namespace Coding
     
         public virtual DbSet<tblPayment> tblPayments { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> SelectAllUsers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SelectAllUsers");
+        }
     
         public virtual ObjectResult<Nullable<decimal>> SelectUserAccountBalance(string userid)
         {

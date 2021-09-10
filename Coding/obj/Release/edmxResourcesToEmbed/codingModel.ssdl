@@ -29,6 +29,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SelectAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SelectUserAccountBalance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userid" Type="nvarchar(max)" Mode="In" />
   </Function>

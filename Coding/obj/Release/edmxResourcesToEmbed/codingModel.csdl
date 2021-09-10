@@ -31,13 +31,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="localdbEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="localdbEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
     <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
     <AssociationSet Name="FK__tblPaymen__useri__33D4B598" Association="Self.FK__tblPaymen__useri__33D4B598">
       <End Role="tblUser" EntitySet="tblUsers" />
       <End Role="tblPayment" EntitySet="tblPayments" />
     </AssociationSet>
+    <FunctionImport Name="SelectAllUsers" ReturnType="Collection(Int32)" />
     <FunctionImport Name="SelectUserAccountBalance" ReturnType="Collection(Decimal)">
       <Parameter Name="userid" Mode="In" Type="String" />
     </FunctionImport>
