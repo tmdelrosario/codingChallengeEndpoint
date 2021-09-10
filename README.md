@@ -30,6 +30,9 @@ FLOW
 - put the data model into object
 - return object to JSON format
 
+ADDED FUNCTION
+- returns all user with specific payment list when no ID is returned.
+
 DATA USED:
 - Local DB
 - Tables with stored procedure and Entity Framework calling on API
