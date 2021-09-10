@@ -45,7 +45,7 @@ TECHNOLOGIES USED:
 - Internet Browser
 
 PATTERNS USED:
-MVC Patter
+- MVC Pattern
 
 SECURITIES:
 - Used stored procedure then use Entity Framework for more secure when doing SQL queries. It's easier to track changes to the database though a single point of access, controlled by your applications, rather than through any number of interfaces.
