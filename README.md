@@ -31,7 +31,7 @@ FLOW
 - return object to JSON format
 
 ADDED FUNCTION
-- returns all user with specific payment list when no ID is returned.
+- returns all users with specific payment list when no ID is returned. .../api/values
 
 DATA USED:
 - Local DB
