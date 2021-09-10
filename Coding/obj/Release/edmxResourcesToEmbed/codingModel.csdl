@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="localdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date_created" Type="DateTime" Precision="3" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="payment_status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="userid" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="Self.FK__tblPaymen__useri__33D4B598" FromRole="tblPayment" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountBalance" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="tblPayments" Relationship="Self.FK__tblPaymen__useri__33D4B598" FromRole="tblUser" ToRole="tblPayment" />
+  </EntityType>
+  <Association Name="FK__tblPaymen__useri__33D4B598">
+    <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+    <End Role="tblPayment" Type="Self.tblPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPayment">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="localdbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblPayments" EntityType="Self.tblPayment" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <AssociationSet Name="FK__tblPaymen__useri__33D4B598" Association="Self.FK__tblPaymen__useri__33D4B598">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblPayment" EntitySet="tblPayments" />
+    </AssociationSet>
+    <FunctionImport Name="SelectUserAccountBalance" ReturnType="Collection(Decimal)">
+      <Parameter Name="userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectUserPaymentList" ReturnType="Collection(localdbModel.SelectUserPaymentList_Result)">
+      <Parameter Name="userid" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SelectUserPaymentList_Result">
+    <Property Type="DateTime" Name="date_created" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="19" />
+    <Property Type="String" Name="payment_status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>
