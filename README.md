@@ -20,8 +20,8 @@ HOW TO RUN
 - You can call the API thru .../api/values/{number id}
 
 EXAMPLE ID WITH DATA
-/api/values/1
-/api/values/2
+- /api/values/1
+- /api/values/2
 
 FLOW
 - call the API function
