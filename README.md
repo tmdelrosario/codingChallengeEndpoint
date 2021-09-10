@@ -2,7 +2,8 @@
 create a list of transaction endpoint that returns JSON format
 
 OVERVIEW
-I created an API that returns an account balance and a list of payment of the user (date, amount, status) and sorted by the latest date. 
+- I created an API that returns an account balance and a list of payment of the user (date, amount, status) and sorted by the latest date. 
+
 E.G. 
 - account balance: 25000.00
 - payment list:
